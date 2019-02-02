@@ -22,7 +22,7 @@ function gotResults(error, results) {
 // }
 
 function setup() {
-  createCanvas(640, 550);
+  createCanvas(200, 100);
   video = createCapture(VIDEO);
   video.hide();
   background(0);
@@ -30,7 +30,6 @@ function setup() {
 }
 
 function draw() {
-  background(0);
   image(video, 0, 0);
   fill(255);
   textSize(32);
