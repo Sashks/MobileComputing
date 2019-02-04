@@ -3,7 +3,7 @@ let video;
 let label = '';
 
 function modelReady() {
-  console.log('Model is ready!!!');
+  console.log('Model READY!');
   mobilenet.predict(gotResults);
 }
 
@@ -14,24 +14,30 @@ function gotResults(error, results) {
     //console.log(results);
     label = results[0].className;
     mobilenet.predict(gotResults);
+
   }
 }
 
-// function imageReady() {
-//   image(puffin, 0, 0, width, height);
-// }
-
 function setup() {
-  createCanvas(300, 600);
-  video = createCapture(VIDEO);
-  video.hide();
+  createCanvas(350, 500);
+  video = createCapture({
+    audio: false,
+    video: {
+      facingMode: {
+        exact: "environment"
+      }
+    }
+  });
   background(0);
   mobilenet = ml5.imageClassifier('MobileNet', video, modelReady);
 }
 
 function draw() {
+  background(0);
   image(video, 0, 0);
   fill(255);
-  textSize(32);
-  text(label, 10, height - 50);
+  textSize(32);  
+  var msg = new SpeechSynthesisUtterance(label);
+  window.speechSynthesis.speak(msg);  
+  text(label, 10, height - 20);
 }
