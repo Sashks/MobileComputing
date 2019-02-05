@@ -7,25 +7,20 @@ html, body {
 body {
   margin: 0;
   display: flex;
-
-  /* This centers our sketch horizontally. */
   justify-content: center;
-
-  /* This centers our sketch vertically. */
   align-items: center;
 }
 
 .text {
 	position:absolte;
-	top:100px;
-	text-align:center;
+	top:700px;
 	color:grey;
 	font-size:15px;
 }
 
 .switch {
-  position: fixed;
-  top:700px;
+  position: absolute;
+  top:650px;
   display: inline-block;
   width: 85px;
   height: 34px;

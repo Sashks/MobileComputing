@@ -3,6 +3,8 @@ let video;
 let label = '';
 let temp;
 let counter = 0;
+let isChecked = false;
+let isChecked2 = false;
 
 function modelReady() {
   console.log('Model READY!');
@@ -34,7 +36,11 @@ function setup() {
 		video = createCapture({
 			video: {
 				facingMode: {
-					exact: "environment"
+					if(isChecked2){
+						exact: "environment"
+					} else {
+						exact: "user"
+					}
 				}
 			}
 		});
@@ -52,7 +58,8 @@ function draw() {
 	image(video, 0, 0);
 	fill(255);
 	textSize(32);   		
-	var isChecked = document.getElementById("myCheckBox").checked;    
+	isChecked = document.getElementById("myCheckBox").checked;    
+	isChecked2 = document.getElementById("myCheckBox2").checked;    
 	if(isChecked){
 		console.log("Text To Speech is Enabled!");
 		if(temp != label) {
