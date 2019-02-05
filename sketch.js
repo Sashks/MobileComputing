@@ -29,7 +29,7 @@ function detectmob() {
 }
 	
 function setup() {
-	if(detectmob){
+	if(detectmob()){
 		createCanvas(windowWidth, windowHeight);  
 		video = createCapture({
 			video: {
@@ -65,10 +65,11 @@ function draw() {
 	var isChecked = document.getElementById("myCheckBox").checked;    
 	if(isChecked){
 		console.log("Text To Speech is Enabled!");
-		if(temp != label) {
-			var speech = new SpeechSynthesisUtterance(label);
+		var speech = new SpeechSynthesisUtterance("Is Speech Recognition working?");
 			speech.rate = 3;
 			speechSynthesis.speak(speech); 
+		if(temp != label) {
+			
 			console.log("speach ready");
 		}
 	} else {
