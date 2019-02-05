@@ -17,10 +17,21 @@ body {
 	color:grey;
 	font-size:15px;
 }
+.switch2 {
+  position: absolute;
+  top:650px;
+  left:40%;
+  display: inline-block;
+  width: 85px;
+  height: 34px;
+}
+
+.switch2 input {display:none;}
 
 .switch {
   position: absolute;
   top:650px;
+  left:55%;
   display: inline-block;
   width: 85px;
   height: 34px;

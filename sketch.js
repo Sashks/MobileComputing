@@ -36,11 +36,7 @@ function setup() {
 		video = createCapture({
 			video: {
 				facingMode: {
-					if(isChecked2){
-						exact: "environment"
-					} else {
-						exact: "user"
-					}
+					exact: isChecked2 ? "user" : "environment"
 				}
 			}
 		});
