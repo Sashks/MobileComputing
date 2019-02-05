@@ -41,7 +41,7 @@ function setup() {
 			}
 		});
 	} else {
-		createCanvas(600, 475);  
+		createCanvas(640, 525);  
 		video = createCapture(VIDEO);
 	}
 	video.hide();
@@ -50,30 +50,11 @@ function setup() {
 }
 	
 function draw() {
-	background(0);
+	isChecked ? background('#97ba75') : background('#ccc');
 	image(video, 0, 0);
 	fill(255);
 	textSize(32);   		
-	isChecked = document.getElementById("myCheckBox").checked;    
-	isChecked2 = document.getElementById("myCheckBox2").checked;  
-	
-	if(isChecked2) {
-		video = createCapture({
-			video: {
-				facingMode: {
-					exact: "user"
-				}
-			}
-		});
-	} else {
-		video = createCapture({
-			video: {
-				facingMode: {
-					exact: "environment"
-				}
-			}
-		});
-	}
+	isChecked = document.getElementById("myCheckBox").checked;
 	
 	if(isChecked){
 		console.log("Text To Speech is Enabled!");
@@ -87,7 +68,7 @@ function draw() {
 		console.log("Text To Speech is Disabled!");
 	}
 	temp = label;
-	text(label, 20 , height - 20);
+	text(label, 20 , height - 10);
 }
 
 

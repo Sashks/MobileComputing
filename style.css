@@ -15,21 +15,10 @@ body {
 	color:grey;
 	font-size:15px;
 }
-.switch2 {
-  position: absolute;
-  top:90%;
-  left:20%;
-  display: inline-block;
-  width: 85px;
-  height: 34px;
-}
-
-.switch2 input {display:none;}
 
 .switch {
   position: absolute;
   top:90%;
-  left:70%;
   display: inline-block;
   width: 85px;
   height: 34px;
@@ -62,11 +51,11 @@ body {
 }
 
 input:checked + .slider {
-  background-color: #2196F3;
+  background-color: #97ba75;
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
+  box-shadow: 0 0 1px #97ba75;
 }
 
 input:checked + .slider:before {
