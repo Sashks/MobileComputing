@@ -27,10 +27,9 @@ function detectmob() {
      return false;
    }
 }
-
-
-if(detectmob()) {
-	function setup() {
+	
+function setup() {
+	if(detectmob){
 		createCanvas(windowWidth, windowHeight);  
 		video = createCapture({
 			video: {
@@ -39,50 +38,44 @@ if(detectmob()) {
 				}
 			}
 		});
-		video.hide();
-		background(0);
-		mobilenet = ml5.imageClassifier('MobileNet', video, modelReady);
-	}
-
-	function draw() {
-		background(0);
-		image(video, 0, 0);
-		fill(255);
-		textSize(14);    
-		if(temp != label) {
-			var speech = new SpeechSynthesisUtterance(label);
-			speech.rate = 3;
-			speechSynthesis.speak(speech); 
-			console.log("speach ready mobile");
-		}
-		temp = label;
-		text(label, 10, height - 20);
-		text("mobile", 15, height - 30);
-	}
-} else {
-	//desktop version	
-	function setup() {
+	} else {
 		createCanvas(600, 475);  
 		video = createCapture(VIDEO);
-		video.hide();
-		background(0);
-		mobilenet = ml5.imageClassifier('MobileNet', video, modelReady);
 	}
+	video.hide();
+	background(0);
+	mobilenet = ml5.imageClassifier('MobileNet', video, modelReady);
+}
 
-	function draw() {
-		background(0);
-		image(video, 0, 0);
-		fill(255);
-		textSize(32);    
+function getValue() {
+	var isChecked = document.getElementById("myCheckBox").checked;
+   
+	if(isChecked){
+		console.log("Input is checked");
+	} else {
+		console.log("Input is NOT checked");
+	}
+}
+	
+function draw() {
+	background(0);
+	image(video, 0, 0);
+	fill(255);
+	textSize(32);   		
+	var isChecked = document.getElementById("myCheckBox").checked;    
+	if(isChecked){
+		console.log("Text To Speech is Enabled!");
 		if(temp != label) {
 			var speech = new SpeechSynthesisUtterance(label);
 			speech.rate = 3;
 			speechSynthesis.speak(speech); 
 			console.log("speach ready");
 		}
-		temp = label;
-		text(label, 20 , height - 20);
+	} else {
+		console.log("Text To Speech is Disabled!");
 	}
+	temp = label;
+	text(label, 20 , height - 20);
 }
 
 
