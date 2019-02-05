@@ -20,8 +20,8 @@ function gotResults(error, results) {
   }
 }
 
-function detectmob() {
-   if(window.innerWidth <= 800 && window.innerHeight <= 600) {
+function detectMob() {
+   if (/Mobi|Android/i.test(navigator.userAgent)) {
      return true;
    } else {
      return false;
@@ -29,7 +29,7 @@ function detectmob() {
 }
 	
 function setup() {
-	if(detectmob()){
+	if(detectMob()){
 		createCanvas(windowWidth, windowHeight);  
 		video = createCapture({
 			video: {
@@ -46,16 +46,6 @@ function setup() {
 	background(0);
 	mobilenet = ml5.imageClassifier('MobileNet', video, modelReady);
 }
-
-function getValue() {
-	var isChecked = document.getElementById("myCheckBox").checked;
-   
-	if(isChecked){
-		console.log("Input is checked");
-	} else {
-		console.log("Input is NOT checked");
-	}
-}
 	
 function draw() {
 	background(0);
@@ -65,11 +55,10 @@ function draw() {
 	var isChecked = document.getElementById("myCheckBox").checked;    
 	if(isChecked){
 		console.log("Text To Speech is Enabled!");
-		var speech = new SpeechSynthesisUtterance("Is Speech Recognition working?");
+		if(temp != label) {
+			var speech = new SpeechSynthesisUtterance(label);
 			speech.rate = 3;
 			speechSynthesis.speak(speech); 
-		if(temp != label) {
-			
 			console.log("speach ready");
 		}
 	} else {
