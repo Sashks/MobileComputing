@@ -58,9 +58,21 @@ function draw() {
 	isChecked2 = document.getElementById("myCheckBox2").checked;  
 	
 	if(isChecked2) {
-		video.exact = "user";
+		video = createCapture({
+			video: {
+				facingMode: {
+					exact: "user"
+				}
+			}
+		});
 	} else {
-		video.exact = "environment";
+		video = createCapture({
+			video: {
+				facingMode: {
+					exact: "environment"
+				}
+			}
+		});
 	}
 	
 	if(isChecked){
