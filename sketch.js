@@ -27,11 +27,11 @@ function isMobileDevice() {
 
 if(!isMobileDevice) {
 	function setup() {
-		createCanvas(350, 450);  
+		createCanvas(windowWidth, windowHeight);  
 		video = createCapture({
 			video: {
 				facingMode: {
-					exact: "user"
+					exact: "environment"
 				}
 			}
 		});
@@ -56,8 +56,9 @@ if(!isMobileDevice) {
 		text("mobile", 15, height - 30);
 	}
 } else {
+	//desktop version	
 	function setup() {
-		createCanvas(600, 500);  
+		createCanvas(600, 475);  
 		video = createCapture(VIDEO);
 		video.hide();
 		background(0);
@@ -76,7 +77,7 @@ if(!isMobileDevice) {
 			console.log("speach ready");
 		}
 		temp = label;
-		text(label, 10, height - 20);
+		text(label, width - 350 , height - 20);
 	}
 }
 
