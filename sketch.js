@@ -20,12 +20,16 @@ function gotResults(error, results) {
   }
 }
 
-function isMobileDevice() {
-    return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
-};
+function detectmob() {
+   if(window.innerWidth <= 800 && window.innerHeight <= 600) {
+     return true;
+   } else {
+     return false;
+   }
+}
 
 
-if(!isMobileDevice) {
+if(detectmob()) {
 	function setup() {
 		createCanvas(windowWidth, windowHeight);  
 		video = createCapture({
@@ -77,7 +81,7 @@ if(!isMobileDevice) {
 			console.log("speach ready");
 		}
 		temp = label;
-		text(label, width - 350 , height - 20);
+		text(label, 20 , height - 20);
 	}
 }
 
