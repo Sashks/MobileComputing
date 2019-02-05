@@ -36,7 +36,7 @@ function setup() {
 		video = createCapture({
 			video: {
 				facingMode: {
-					exact: isChecked2 ? "user" : "environment"
+					exact: "environment"
 				}
 			}
 		});
@@ -55,7 +55,14 @@ function draw() {
 	fill(255);
 	textSize(32);   		
 	isChecked = document.getElementById("myCheckBox").checked;    
-	isChecked2 = document.getElementById("myCheckBox2").checked;    
+	isChecked2 = document.getElementById("myCheckBox2").checked;  
+	
+	if(isChecked2) {
+		video.exact = "user";
+	} else {
+		video.exact = "environment";
+	}
+	
 	if(isChecked){
 		console.log("Text To Speech is Enabled!");
 		if(temp != label) {
