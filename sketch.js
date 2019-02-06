@@ -15,7 +15,6 @@ function gotResults(error, results) {
   if (error) {
     console.error(error);
   } else {
-    //console.log(results);
     label = results[0].className;
     mobilenet.predict(gotResults);
 

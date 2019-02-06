@@ -9,11 +9,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.text {
-	color:grey;
-	font-size:15px;
+  background:#6c7267;
 }
 
 .switch {
