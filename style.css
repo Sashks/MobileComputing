@@ -32,6 +32,7 @@ body {
   background-color: #ccc;
   -webkit-transition: .4s;
   transition: .4s;
+  border-radius: 25px;
 }
 
 .slider:before {
@@ -44,6 +45,7 @@ body {
   background-color: white;
   -webkit-transition: .4s;
   transition: .4s;
+  border-radius: 50%;
 }
 
 input:checked + .slider {
@@ -59,9 +61,3 @@ input:checked + .slider:before {
   -ms-transform: translateX(50px);
   transform: translateX(50px);
 }
-
-
-
-
-
-
